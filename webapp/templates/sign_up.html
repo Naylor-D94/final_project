@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Sign up{% endblock %}                                                                                                <!-- Edit page Title -->
+
+{% block style %}
+
+<style>
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}                                                                                                                 <!-- Edit page content -->
+
+<div class="w3-display-middle">
+
+    <div class="w3-container" style="opacity: 0.7;">
+
+        <form class="w3-xlarge" action="/sign_up" method="post">
+
+            <input class="w3-input w3-border" type="text" name="uname" placeholder="username">
+            <input class="w3-input w3-border" type="password" name="pwd" placeholder="password">
+            <input class="w3-input w3-border" type="password" name="repwd" placeholder="password(again)">
+            <button class="btn-lg w3-block btn-primary w3-small" type="submit" style="opacity: 1;">Sign up</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest    
+    container_name: db
+
+    environment:
+      MYSQL_DATABASE: webapp_db
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_password
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+
+    ports:
+      - 8080:80
+
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./webapp/:/usr/webapp
+
+    ports:
+      - 5000:5000
+
+    #restart: always
+
+
+volumes:
+  dbdata:
+  
+

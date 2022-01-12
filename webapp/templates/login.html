@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}                                                                                        <!-- Edit page Title -->
+
+{% block style %}
+
+<style>
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}                                                                                                         <!-- Edit page content -->
+
+<div class="w3-display-middle">
+
+    <div class="w3-container" style="opacity: 0.7;">
+
+        <!--
+        <div class="w3-container ">
+            <h2>{{ season }}</h2>
+        </div>
+        -->
+
+        <form class="w3-xlarge" action="/verify" method="post">                                                             <!-- Info request form -->
+
+            <input class="w3-input w3-border" type="text" name="uname" placeholder="username">                              <!-- Username Box-->
+            <input class="w3-input w3-border" type="password" name="pwd" placeholder="password">                            <!-- Password box-->
+            <div class=" w3-bar w3-large w3-padding">
+                <button class="btn-lg w3-left btn-primary" type="submit">Sign-Up</button>                                   <!-- Sign-up Button -->
+                <button class="btn-lg w3-right btn-primary" type="submit">login</button>                                    <!-- Login Button -->
+            </div>
+            <div>
+                <a href="" class="w3-left" style="margin-top: 5px; color:rgb(255, 255, 255)">forgotten password</a>       <!-- Forgot password -->
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

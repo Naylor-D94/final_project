@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>                                                      <!-- Block to be edited for Titles per page-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"             
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+    />                                                                                                   <!-- Added Bootstrap functionality-->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+    />
+
+    {% block style %}                                                                                   <!-- Block to edit Style-->
+                                                                                                        <!-- Change font style and colour-->
+    <style>                                                                                                         
+        body {                                                                                          
+            font-family: 'Franklin Gothic Medium';                      
+            color: whitesmoke;
+        }
+                                                                                                        
+    </style>
+    {% endblock %}                              
+</head>
+
+<body>
+
+    <style>                                                                                                         
+        body {                                                                                          
+            font-family: 'Franklin Gothic Medium';                      
+            color: whitesmoke;
+        }
+                                                                                                        
+    </style>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">                                 <!-- Added a navigation bar at the top of each page--><!--Pinned to top of screen-->
+        <a class="navbar-brand" href="#">
+            <img src="medal.jpg" alt="logo" style="width:40px;">                                        <!-- Added an icon to the navbar-->
+        </a>                                           
+      <button   
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >                                                                                                 <!-- Made navbar collapsable-->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" id="home" href="/">Home</a>                                      <!-- Home Button -->
+          <a class="nav-item nav-link" id="help" href="/help">Help</a>                                  <!-- Help Button -->
+          <a class="nav-item nav-link" id="login" href="/login">Login</a>                               <!-- Login button -->
+          <a class="nav-item nav-link" id="main" href="/sign_up">Sign up</a>                            <!-- Sign up button -->
+        </div>
+      </div>
+    </nav>
+    <img src="/static/images/background_1.jpg" alt="background_1" class="w3-image w3-opacity">          <!-- Added image as from /static/images-->
+    {% block content %}{% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+</body>
+
+</html>
