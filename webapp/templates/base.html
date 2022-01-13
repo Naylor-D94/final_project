@@ -17,7 +17,11 @@
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    />                                                                                                  <!-- Added Bootstrap functionality-->
 
     {% block style %}                                                                                   <!-- Block to edit Style-->
                                                                                                         <!-- Change font style and colour-->
@@ -32,7 +36,7 @@
 </head>
 
 <body>
-
+                                                                                                        <!-- Change font style and colour-->
     <style>                                                                                                         
         body {                                                                                          
             font-family: 'Franklin Gothic Medium';                      
@@ -62,26 +66,28 @@
         </div>
       </div>
     </nav>
-    <img src="/static/images/background_1.jpg" alt="background_1" class="w3-image w3-opacity">          <!-- Added image as from /static/images-->
-    {% block content %}{% endblock %}
-
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
-        messages %} {% for category, message in messages %} {% if category ==
-        'error' %}
-        <div class="alert alert-danger alter-dismissable fade show" role="alert">
-          {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% else %}
-        <div class="alert alert-success alter-dismissable fade show" role="alert">
-          {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% endif %} {% endfor %} {% endif %} {% endwith %}
+      
+      <img src="/static/images/background_1.jpg" alt="background_1" class="w3-image w3-opacity">          <!-- Added image as from /static/images-->
+      {% block content %}{% endblock %}
+    
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if                              <!-- Added error / success popups -->
+          messages %} {% for category, message in messages %} {% if category ==
+          'error' %}
+          <div class="alert alert-danger alter-dismissable fade show fixed-bottom" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% else %}
+          <div class="alert alert-success alter-dismissable fade show fixed-bottom" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endif %} {% endfor %} {% endif %} {% endwith %}
+        
 </body>
 
 </html>

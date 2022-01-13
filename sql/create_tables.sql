@@ -4,7 +4,6 @@ START TRANSACTION;
 USE webapp_db;
 
 -- Drop the Persons table if it exists
-DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Persons;
 DROP TABLE IF EXISTS Credentials;
 
@@ -30,16 +29,12 @@ CREATE TABLE Persons (
     FOREIGN KEY (credId) REFERENCES Credentials(credId)
 );
 
--- INSERT into Persons (LastName, email) VALUES ('Shams0', 'shams0.mail.com');
 
--- Create the orders table
-CREATE TABLE Orders (
-    OrderID int NOT NULL AUTO_INCREMENT,
-    OrderNumber int NOT NULL,
-    OrderDesc varchar(1024),
-    PersonID int NOT NULL,
-
-    PRIMARY KEY (OrderID),
-    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+-- Create the Template table
+CREATE TABLE Template (
+    race varchar(100) NOT NULL,
+    armor varchar(100) NOT NULL,
+    weapon varchar(1024) NOT NULL,
+    primary_stat varchar(100) NOT NULL
 );
 

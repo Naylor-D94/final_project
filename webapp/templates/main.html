@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Main{% endblock %}                                                                              <!-- Edit page Title -->
+{% block title %}Main{% endblock %}                                                                                             <!-- Edit page Title -->
 
 {% block style %}
 
@@ -11,12 +11,22 @@
 {% endblock %}
 
 
-{% block content %}                                                                                             <!-- Edit page content -->
-
+{% block content %}                                                                                                             <!-- Edit page content -->
 <div class="w3-display-middle">
 
-    <h1>Name =  {{ name }}, Password = {{ pwd }} </h1>
+    <div class="w3-container" style="opacity: 0.7;">
+
+        <form class="w3-xlarge" action="/main" method="post">
+
+            <input class="w3-input w3-border" type="text" name="race" placeholder="Race">                                       <!-- Race box -->
+            <input class="w3-input w3-border" type="text" name="armor" placeholder="Armor Type">                                <!-- Armor box-->
+            <input class="w3-input w3-border" type="text" name="weapon" placeholder="Weapon Type">                              <!-- Weapon box -->
+            <input class="w3-input w3-border" type="text" name="primary_stat" placeholder="Primary stat">                       <!-- Stat box -->
+            <button class="btn-lg w3-block btn-primary w3-small" type="submit" style="opacity: 1;">Send Template</button>       <!-- Submit button -->
+
+        </form>
+
+    </div>
 
 </div>
-
 {% endblock %}
